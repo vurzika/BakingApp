@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation.xml"
+    app:startDestination="@id/recipes_list_fragment">
+
+    <fragment
+        android:id="@+id/recipes_list_fragment"
+        android:name="com.viktorija.bakingapp.recipes.RecipesListFragment"
+        android:label="Recipes List">
+        <action
+            android:id="@+id/action_recipes_list_fragment_to_details_fragment"
+            app:destination="@id/details_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/details_fragment"
+        android:name="com.viktorija.bakingapp.details.DetailsFragment"
+        android:label="Details">
+        <argument
+            android:name="selectedRecipe"
+            app:argType="com.viktorija.bakingapp.data.model.Recipe"/>
+    </fragment>
+
+</navigation>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="recipe"
+            type="com.viktorija.bakingapp.data.model.Recipe" />
+        <!-- Create <variable> clickListener of type NoteClickListener
+            Inside the data block, add a new variable to make the
+            NoteClickListener class available through data binding.-->
+        <variable
+            name="clickListener"
+            type="com.viktorija.bakingapp.recipes.RecipeClickListener" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_item_height"
+        android:onClick="@{() -> clickListener.onClick(recipe)}">
+
+        <TextView
+            android:id="@+id/point_of_interest_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@color/colorCellText"
+            android:textStyle="bold"
+            app:text="@{recipe.title}"
+            tools:text="Avocado Toast" />
+
+    </RelativeLayout>
+</layout>
